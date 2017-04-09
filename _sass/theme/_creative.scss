@@ -1,4 +1,4 @@
-
+$brand-white: #ffffff;
 
 // Global Components
 html,
@@ -54,10 +54,17 @@ aside {
 }
 
 // Navigation
+.navbar-logo {
+  margin: 14px 0 0 12px;
+  float: left;
+  img {
+    height: 60px;
+  }
+}
 
 .navbar-default {
-    background-color: white;
     border-color: fade($gray-darker, 5%);
+    border-bottom: none;
     @include transition(0.35s);
     .navbar-header .navbar-brand {
         color: $brand-primary;
@@ -67,11 +74,13 @@ aside {
         &:focus {
             color: darken($brand-primary, 10%);
         }
+        img {
+            height: 60px;
+        }
     }
     .navbar-header .navbar-toggle {
         font-weight: 700;
         font-size: 12px;
-        color: $gray-darker;
         text-transform: uppercase;
     }
     .nav {
@@ -83,7 +92,7 @@ aside {
                 font-size: 13px;
                 color: white;
                 &:hover {
-                    color: $brand-primary;
+                    text-decoration: underline;
                 }
             }
             &.active {
@@ -116,7 +125,7 @@ aside {
             }
         }
         &.affix {
-            background-color: white;
+            background-color: darken($brand-primary, 35%);
             border-color: fade($gray-darker, 5%);
             .navbar-header .navbar-brand {
                 color: $brand-primary;
@@ -128,16 +137,19 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $gray-darker;
-                &:hover {
-                    color: $brand-primary;
-                }
+
             }
         }
     }
 }
 
 // Homepage Header
+
+.serif {
+  font-family: "Alegreya", monotype, Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
 
 header {
     position: relative;
@@ -148,7 +160,7 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url($baseurl + "/assets/images/header.jpg");
+    background-image: url($baseurl + "/assets/images/header-p.jpg");
     text-align: center;
     color: white;
     .header-content {
@@ -157,21 +169,33 @@ header {
         padding: 100px 15px 100px;
         width: 100%;
         .header-content-inner {
-            h1 {
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-top: 0;
-                margin-bottom: 0;
-                font-size: 30px;
+            h1.home-heading {
+              margin-top: 0;
+              text-transform: uppercase;
+              margin-bottom: 0;
+              font-size: 88px;
+              line-height: 0.7em;
+              text-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+              color: $brand-white;
+              span {
+                text-transform: lowercase;
+                clear: left;
+                font-size: .6em;
+                display: block;
+                margin-bottom: 10px;
+                color: #e3e3e3;
+              }
             }
             hr {
                 margin: 30px auto;
+                border-color: #FAFF90;
             }
             p {
                 font-weight: 300;
                 color: fade(white, 70%);
                 font-size: 16px;
                 margin-bottom: 50px;
+                text-shadow: 1px 1px 12px rgba(0, 0, 0, 0.2);
             }
         }
     }
@@ -192,7 +216,8 @@ header {
                     font-size: 50px;
                 }
                 p {
-                    font-size: 18px;
+                    font-size: 25px;
+                    line-height: 1.2em;
                     max-width: 80%;
                     margin-left: auto;
                     margin-right: auto;
@@ -294,14 +319,27 @@ header {
 }
 
 .btn {
-    border: none;
-    border-radius: 300px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.btn-xl {
-    padding: 15px 30px;
+  text-transform: uppercase;
+  &.btn-outline {
+    border: 3px solid;
+  }
+  &.btn-white {
+    border-color: rgba(255,255,255,0.7);
+    color: $brand-white;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    &:hover, &:focus {
+      border-color: $brand-white;
+      color: $brand-white;
+    }
+  }
+  &.btn-xl {
+    padding: 12px 25px;
+    font-size: 1.4em;
+    font-weight: 500;
+    & + .btn-xl {
+      margin-left: 20px;
+    }
+  }
 }
 
 // Extras
